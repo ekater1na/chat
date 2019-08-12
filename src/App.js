@@ -1,11 +1,13 @@
-import React from 'react';
 
-function App() {
-  return (
-    <div className="container">
-      Chat
-    </div>
-  );
+import React, { Component } from 'react';
+import Layout from './components/Layout';
+
+class App extends Component {
+    render() {
+        return (
+          <Layout title='Chat'/>
+        );
+    }
 }
 
 export default App;
