@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { VERIFY_USER } from '.Events'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -7,6 +8,30 @@ class LoginForm extends Component {
             nickname:"",
             error:""
         };
+    }
+
+    setUser = ({user, isUser}=>{
+        if(isUser){
+            this.MediaStreamError("User name taken")
+        }else{
+            this.props.setUser({user})
+        }
+    }
+
+    handleSubmit = (e)=>{
+        e.preventDefault()
+
+        const { socket } = this.props;
+        const { nickname } = this.state;
+        socket.emit(VERIFY_USER, nickname, this.setUser)
+    }
+
+    handleChange = (e)=>{
+        this.setState({nickname:e.target.value})
+    }
+
+    setError = (error)=>{
+        this.setState({error})
     }
 
     render() {
