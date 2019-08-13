@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 const uuidv4 = require('uuid/v4');
 
 // Create a user
 const createUser = ({name = ""} = {})=>(
 {
-    id: uuidvv4(),
+    id: uuidv4(),
     name
 })
 
@@ -26,11 +27,16 @@ const createChat = ({messages = [], name = "Community", user = []} = {})=>(
         messages,
         users,
         typingUsers:[]
-
     }
 )
 
 // Chenge time format
 const getTime = (date)=>{
     return `${date.getHours()}:${("0"+date.getMinutes()).slice(-2)}`
+}
+
+module.exports = {
+    createMessage,
+    createChat,
+    createUser
 }
