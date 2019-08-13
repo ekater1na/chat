@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VERIFY_USER } from '.Events'
+import { VERIFY_USER } from '../Events'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class LoginForm extends Component {
         };
     }
 
-    setUser = ({user, isUser}=>{
+    setUser = ({user, isUser})=>{
         if(isUser){
             this.MediaStreamError("User name taken")
         }else{
