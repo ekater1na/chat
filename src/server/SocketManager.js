@@ -13,6 +13,9 @@ let communityChat = createChat();
 module.exports = function(socket) {
   console.log("Socket Id:" + socket.id);
 
+  let sendMessageToChatFromUser;
+  let sendTypingFromUser;
+
   // Verify Username
   socket.on(VERIFY_USER, (nickname, callback) => {
     if (isUser(connectedUsers, nickname)) {
@@ -28,6 +31,7 @@ module.exports = function(socket) {
         socket.user = user
 
         sendMessageToChatFromUser = sendMessageToChat(user.name)
+        sendTypingFromUser = sendTypingToChat(user.name)
         io.emit(USER_CONNECTED, connectedUsers)
         console.log(connectedUsers);
     })
