@@ -4,9 +4,10 @@ import FAMenu from 'react-icons/lib/fa/list-ul'
 import FASearch from 'react-icons/lib/fa/search'
 import MdEject from 'react-icons/lib/md/eject'
 
-class SideBar extends Component {
-    render() {
-        const { chats, activeChat, user, setActiveChat, logout} = this.props
+class SideBar extends Component{
+		
+	render(){
+		const { chats, activeChat, user, setActiveChat, logout} = this.props
 		return (
 			<div id="side-bar">
 					<div className="heading">
@@ -63,7 +64,8 @@ class SideBar extends Component {
 					</div>
 			</div>
 		);
-    }
+	
+	}
 }
 
 export default SideBar;
