@@ -35,11 +35,8 @@ class MessageInput extends Component {
           }
       }
   
-      /*
-      *	startCheckingTyping
-      *	Start an interval that checks if the user is typing.
-      */
-      startCheckingTyping = ()=>{
+      // StartCheckingTyping
+       startCheckingTyping = ()=>{
           console.log("Typing");
           this.typingInterval = setInterval(()=>{
               if((Date.now() - this.lastUpdateTime) > 300){
@@ -49,10 +46,7 @@ class MessageInput extends Component {
           }, 300)
       }
       
-      /*
-      *	stopCheckingTyping
-      *	Start the interval from checking if the user is typing.
-      */
+      // StopCheckingTyping
       stopCheckingTyping = ()=>{
           console.log("Stop Typing");
           if(this.typingInterval){
