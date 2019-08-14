@@ -1,4 +1,3 @@
-
 let app = require('http').createServer();
 let io = module.exports.io = require('socket.io')(app);
 

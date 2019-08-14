@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const uuidv4 = require('uuid/v4');
 
 // Create a user

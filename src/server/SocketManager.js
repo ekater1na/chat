@@ -1,33 +1,33 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 const io = require('./index.js').io;
 
-const { VERIFY_USER, USER_CONNECTED, LOGOUT} = require("../Events");
+const { VERIFY_USER, USER_CONNECTED} = require("../Events");
 
-const { createUser, createMessage, createChat} = require("../Factories")
+const { createUser} = require("../Factories")
 
 let connectedUsers = {};
 
-module.exports = function(socket){
-    console.log('Socket ID:' + socket.id)
-}
+module.exports = function(socket) {
+  console.log("Socket Id:" + socket.id);
 
-// Verify Username
-socket.on(VERIFY_USER, (nickname, callback)=>{
-    if(isUser(connectedUsers, nickname)){
-        callback({ isUser:true, user:null })
-    }else{
-        callback({ isUser:false, user:createUser({name:nickname})})
+  // Verify Username
+  socket.on(VERIFY_USER, (nickname, callback) => {
+    if (isUser(connectedUsers, nickname)) {
+      callback({ isUser: true, user: null });
+    } else {
+      callback({ isUser: false, user: createUser({ name: nickname }) });
     }
-})
+  });
 
-// User connects with username
-socket.on(USER_CONNECTED, (user)=>{
-    connectedUsers = addUser(connectedUsers, user)
-    socket.user = user
-    io.emit(USER_CONNECTED, connectedUsers)
-    console.log(connectedUsers);
-})
+  // User connects with username
+    socket.on(USER_CONNECTED, (user)=>{
+        connectedUsers = addUser(connectedUsers, user)
+        socket.user = user
+        io.emit(USER_CONNECTED, connectedUsers)
+        console.log(connectedUsers);
+    })
+
+//  ...
+};
 
 // User disconnect
 
