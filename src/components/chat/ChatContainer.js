@@ -4,7 +4,6 @@ import { COMMUNITY_CHAT, MESSAGE_SENT, MESSAGE_RECIEVED, TYPING } from '../../Ev
 import ChatHeading from './ChatHeading';
 import Messages from '../messages/Messages';
 import MessageInput from '../messages/MessageInput';
-import { thisExpression } from '@babel/types';
 
 class ChatContainer extends Component {
     constructor(props) {
@@ -21,9 +20,9 @@ class ChatContainer extends Component {
         socket.emit(COMMUNITY_CHAT, this.resetChat)
     }
 
-    resetChat(chat){
-        return thisExpression.addChat(chat, true)
-    }
+    resetChat = (chat)=>{
+		return this.addChat(chat, true)
+	}
 
     addChat = (chat, reset)=>{
         console.log(chat)
