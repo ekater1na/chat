@@ -2,7 +2,7 @@ const io = require('./index.js').io;
 
 const { VERIFY_USER, USER_CONNECTED} = require("../Events");
 
-const { createUser} = require("../Factories")
+const { createUser, createMessage, createChat } = require("../Factories")
 
 let connectedUsers = {};
 
