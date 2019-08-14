@@ -9,7 +9,7 @@ class SideBar extends Component{
 		return (
 			<div id="side-bar">
 					<div className="heading">
-						<div className="app-name">Our Cool Chat <MdKeyboardArrowDown /></div>
+						<div className="app-name">Chat <MdKeyboardArrowDown /></div>
 						<div className="menu">
 							<FaListUl />
 						</div>
